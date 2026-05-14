@@ -1,0 +1,27 @@
+services:
+  podflow:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - podflow-data:/app/data
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["gpu"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  podflow-data:
+  ollama-data:

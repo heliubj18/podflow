@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PodFlow - 文档转播客</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🎙️ PodFlow</div>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" data-page="create">新建任务</a>
+      <a href="#" class="nav-link" data-page="history">历史任务</a>
+      <a href="#" class="nav-link" data-page="settings">设置</a>
+    </div>
+  </nav>
+  <main class="container">
+    <div id="page-create" class="page active">
+      <div class="upload-zone" id="upload-zone">
+        <div class="upload-icon">📄</div>
+        <p>拖拽文件到此处，或点击上传</p>
+        <small>支持 PDF / DOC / DOCX / TXT / EPUB</small>
+        <input type="file" id="file-input" accept=".pdf,.doc,.docx,.txt,.epub" hidden>
+        <div class="url-divider"><span>或</span></div>
+        <input type="text" id="url-input" class="url-field" placeholder="粘贴网页 URL...">
+      </div>
+      <div class="config-grid">
+        <div class="config-card">
+          <h3>输出模式</h3>
+          <div class="mode-selector">
+            <div class="mode-option selected" data-mode="dialogue"><span class="mode-icon">🎙️</span><span>双人播客</span></div>
+            <div class="mode-option" data-mode="lecture"><span class="mode-icon">🎤</span><span>单人讲座</span></div>
+          </div>
+        </div>
+        <div class="config-card" id="template-card">
+          <h3>角色模板</h3>
+          <div id="template-list" class="template-list"></div>
+        </div>
+      </div>
+      <div class="action-bar">
+        <button id="btn-start" class="btn-primary" disabled>开始生成播客</button>
+      </div>
+      <div id="selected-file" class="selected-file" hidden></div>
+    </div>
+    <div id="page-history" class="page">
+      <h2>历史任务</h2>
+      <div id="task-list" class="task-list"></div>
+    </div>
+    <div id="page-detail" class="page">
+      <div id="task-detail"></div>
+    </div>
+    <div id="page-settings" class="page">
+      <h2>设置</h2>
+      <div class="settings-form">
+        <div class="setting-section">
+          <h3>LLM 后端</h3>
+          <label>服务商</label>
+          <select id="llm-provider">
+            <option value="ollama">Ollama (本地)</option>
+            <option value="llamacpp">llama.cpp (本地)</option>
+            <option value="openai">OpenAI</option>
+            <option value="deepseek">Deepseek</option>
+            <option value="siliconflow">硅基流动</option>
+            <option value="custom">自定义</option>
+          </select>
+          <label>API 地址</label>
+          <input type="text" id="llm-base-url" placeholder="http://localhost:11434/v1">
+          <label>API Key</label>
+          <input type="password" id="llm-api-key" placeholder="留空表示不需要">
+          <label>模型名称</label>
+          <input type="text" id="llm-model" placeholder="qwen3:27b">
+          <button class="btn-secondary" id="btn-test-llm">测试连接</button>
+          <span id="llm-test-result"></span>
+        </div>
+        <div class="setting-section">
+          <h3>TTS 后端</h3>
+          <label>服务商</label>
+          <select id="tts-provider">
+            <option value="edge-tts">Edge-TTS (免费在线)</option>
+            <option value="voxcpm2">VoxCPM2 (本地 GPU)</option>
+            <option value="chattts">ChatTTS (本地 GPU)</option>
+            <option value="openai-tts">OpenAI TTS</option>
+          </select>
+          <label>主持人音色</label>
+          <select id="tts-host-voice"></select>
+          <label>嘉宾音色</label>
+          <select id="tts-guest-voice"></select>
+        </div>
+        <div class="action-bar">
+          <button class="btn-primary" id="btn-save-settings">保存设置</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/js/app.js"></script>
+</body>
+</html>

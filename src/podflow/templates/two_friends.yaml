@@ -1,0 +1,12 @@
+name: "两个朋友聊天"
+description: "两个好朋友轻松地讨论一个话题"
+host:
+  name: "小明"
+  role: "好奇宝宝"
+  style: "好奇心强，喜欢追问为什么，偶尔吐槽"
+  voice: "zh-CN-YunxiNeural"
+guest:
+  name: "小红"
+  role: "知识达人"
+  style: "博学但接地气，喜欢用生活中的例子解释"
+  voice: "zh-CN-XiaoxiaoNeural"

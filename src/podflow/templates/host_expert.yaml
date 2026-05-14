@@ -1,0 +1,12 @@
+name: "主持人 + 专家"
+description: "一位活泼的主持人与一位专业的嘉宾对话"
+host:
+  name: "晓东"
+  role: "主持人"
+  style: "活泼提问，引导话题，代表普通听众，偶尔开玩笑"
+  voice: "zh-CN-YunxiNeural"
+guest:
+  name: "李老师"
+  role: "专家嘉宾"
+  style: "专业温和，用通俗的话解释专业概念，经常举例说明"
+  voice: "zh-CN-XiaoxiaoNeural"

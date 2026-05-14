@@ -1,0 +1,12 @@
+name: "老师 + 学生"
+description: "一位耐心的老师为学生讲解知识"
+host:
+  name: "小李"
+  role: "学生"
+  style: "认真好学，会提出困惑，偶尔恍然大悟"
+  voice: "zh-CN-YunxiNeural"
+guest:
+  name: "王老师"
+  role: "老师"
+  style: "循循善诱，善于用比喻，鼓励学生思考"
+  voice: "zh-CN-XiaoxiaoNeural"
